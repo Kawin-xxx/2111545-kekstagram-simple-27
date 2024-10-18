@@ -9,6 +9,9 @@ const editorForm = document.querySelector('.img-upload__overlay');
 const buttonCloseEditor = document.querySelector('.img-upload__cancel');
 const buttonSendPhoto = document.querySelector('.img-upload__submit');
 const uploadForm = document.querySelector('.img-upload__form');
+const uploadFileInput = document.querySelector('#upload-file');
+const imgElement = document.querySelector('.js-img img');
+const FILE_TYPES = ['gif', 'jpg', 'jpeg', 'png'];
 
 const onEditorEscKeydown = (evt) => {
   if (isEscape(evt)) {
@@ -72,5 +75,19 @@ const onSendButtonSubmit = (evt) => {
 const setUserFormSubmit = () => {
   uploadForm.addEventListener('submit', onSendButtonSubmit);
 };
+
+const showUploadImage = (fileInput, imgTag) => {
+  const file = fileInput.files[0];
+  const fileName = file.name.toLowerCase();
+  const matches = FILE_TYPES.some((it) => fileName.endsWith(it));
+  if (matches) {
+    imgTag.src = URL.createObjectURL(file);
+  }
+};
+
+uploadFileInput.addEventListener('change', () => {
+  showUploadImage(uploadFileInput, imgElement);
+  openEditor();
+});
 
 export { openEditor, setUserFormSubmit };

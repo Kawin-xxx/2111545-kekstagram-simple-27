@@ -25,8 +25,8 @@
 
             <!-- Изначальное состояние поля для загрузки изображения -->
             <fieldset class="img-upload__start">
-              <input type="file" id="upload-file" class="img-upload__input  visually-hidden" name="filename" required>
-              <label for="upload-file" class="img-upload__label  img-upload__control">Загрузить</label>
+              <input type="file" id="upload-file" class="img-upload__input visually-hidden" name="filename" required accept="image/png, image/jpeg">>
+              <label for="upload-file" class="img-upload__label img-upload__control">Загрузить</label>
             </fieldset>
 
             <!-- Форма редактирования изображения -->
@@ -42,7 +42,7 @@
                   </fieldset>
 
                   <!-- Предварительный просмотр изображения -->
-                  <div class="img-upload__preview">
+                  <div class="img-upload__preview js-img">
                     <img src="img/upload-default-image.jpg" alt="Предварительный просмотр фотографии">
                   </div>
 
